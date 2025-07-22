@@ -4,14 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Task Page</title>
-  <link rel="stylesheet" href="n3.css" />
+  <link rel="stylesheet" href="final.css" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
+  <!-- Overlay -->
+  <div class="overlay" id="overlay"></div>
+
   <!-- Navigation Bar -->
   <header class="nav-bar">
     <div class="nav-left">
-      <i class="fas fa-chevron-left nav-toggle"></i>
+      <i class="fas fa-chevron-left nav-toggle" id="toggleBtn"></i>
       <img src="logo.png.png" alt="Logo" class="logo" />
     </div>
     <nav class="nav-center">
@@ -30,32 +33,33 @@
   <!-- Page Container -->
   <div class="page-container">
     <!-- Sidebar -->
-    <aside class="sidebar">
+    <aside class="sidebar" id="sidebar">
       <button class="add-btn">ADD QUESTION</button>
       <div class="section-block">
-        <h4>SNAP SHOT</h4>
-        <h4>SECTIONS</h4>
+        <h4 class="snap">SNAP SHOT</h4>
+        <h4 class="sec">SECTIONS</h4>
         <ul class="sections">
+          <li><span class="plus">+</span> New Section</li>
           <li><span class="dot red"></span> Section 1</li>
           <li><span class="dot blue"></span> Section 2</li>
-          <li>Uncategorized (5)</li>
+          <li><span class="dot white"></span> Uncategorized (5)</li>
         </ul>
       </div>
       <div class="section-block">
-        <h4>TEST INFORMATION</h4>
-        <p><input type="radio" /> Marks : (10)</p>
-        <p><input type="radio" /> No. of Q : (10)</p>
-        <p><input type="radio" /> Neg : (10)</p>
-        <p><input type="radio" /> Duration : (10)</p>
+        <h4 class="TI">TEST INFORMATION</h4>
+        <p class="mar"><input type="radio" /> Marks : (10)</p>
+        <p class="noq"><input type="radio" /> No. of Q : (10)</p>
+        <p class="neg"><input type="radio" /> Neg : (10)</p>
+        <p class="dur"><input type="radio" /> Duration : (10)</p>
       </div>
     </aside>
 
     <!-- Main Content -->
     <main class="main-panel">
-      <div class="header-row">
+        <div class="header-row">
         <h2>Test 1 Questions</h2>
         <div class="view-buttons">
-          <button class="btn-outline"><a class="fullviewlink"  href="n3.html">Full View</a></button>
+          <button class="btn-outline"><a class="fullviewlink"  href="new2.html">Full View</a></button>
           <div class="dropdown-wrapper">
             <button class="btn-outline" id="viewBtn">View</button>
             <div class="dropdown-menu" id="dropdownMenu">
@@ -73,6 +77,8 @@
       <input type="text" class="search-bar" placeholder="Search" />
 
       <!-- Questions Table -->
+    <div class="table-wrapper">
+
       <div class="table">
         <div class="table-header">
           <div class="col question-col">Questions</div>
@@ -83,13 +89,13 @@
         </div>
 
         <!-- Question Rows -->
-        <div class="table-row">
+       <div class="table-row">
           <div class="col question-col">
             <div class="question-with-checkbox">
               <input type="checkbox" class="question-checkbox" />
-              <span>What is the prim...</span>
+              <span>What is the primary purpose of React in web development, and how does it contribute to building dynamic and interactive user interfaces?</span>
             </div>
-            <!-- <div class="answer">React is primarily used for building user interfaces, allowing developers  to create reusable UI components and manage the state of applications efficiently.</div> -->
+            <div class="answer">React is primarily used for building user interfaces, allowing developers  to create reusable UI components and manage the state of applications efficiently.</div>
           </div>
           <div class="col owner-col">Admin</div>
           <div class="col type-col">Theory</div>
@@ -106,9 +112,9 @@
           <div class="col question-col">
             <div class="question-with-checkbox">
               <input type="checkbox" class="question-checkbox" />
-              <span>What is the...</span>
+              <span>What is the result of 5 + 3?</span>
             </div>
-            <!-- <div class="answer">8</div> -->
+            <div class="answer">8</div>
           </div>
           <div class="col owner-col">Admin</div>
           <div class="col type-col">Numerical</div>
@@ -125,9 +131,9 @@
           <div class="col question-col">
             <div class="question-with-checkbox">
               <input type="checkbox" class="question-checkbox" />
-              <span>Is React a JavaS...</span>
+              <span>Is React a JavaScript library?</span>
             </div>
-            <!-- <div class="answer">Yes, React is a JavaScript library for building user interfaces.</div> -->
+            <div class="answer">Yes, React is a JavaScript library for building user interfaces.</div>
           </div>
           <div class="col owner-col">Admin</div>
           <div class="col type-col">MCQ</div>
@@ -144,9 +150,9 @@
           <div class="col question-col">
             <div class="question-with-checkbox">
               <input type="checkbox" class="question-checkbox" />
-              <span>What is an algo...</span>
+              <span>What is an algorithm</span>
             </div>
-            <!-- <div class="answer">An algorithmis a step-by-step procedure or formula for solving a problem.</div> -->
+            <div class="answer">An algorithmis a step-by-step procedure or formula for solving a problem.</div>
           </div>
           <div class="col owner-col">Admin</div>
           <div class="col type-col">Theory</div>
@@ -163,9 +169,9 @@
           <div class="col question-col">
             <div class="question-with-checkbox">
               <input type="checkbox" class="question-checkbox" />
-              <span>Calculate the ar...</span>
+              <span>Calculate the area of the rectangle with length 10cm and width 5cm.</span>
             </div>
-            <!-- <div class="answer">50 cm<sup>2</sup></div> -->
+            <div class="answer">50 cm<sup>2</sup></div>
           </div>
           <div class="col owner-col">Admin</div>
           <div class="col type-col">Numerical</div>
@@ -182,9 +188,9 @@
           <div class="col question-col">
             <div class="question-with-checkbox">
               <input type="checkbox" class="question-checkbox" />
-              <span>Which planet is kno...</span>
+              <span>Which planet is known as Red planet?</span>
             </div>
-            <!-- <div class="answer">Mars</div> -->
+            <div class="answer">Mars</div>
           </div>
           <div class="col owner-col">Admin</div>
           <div class="col type-col">MCQ</div>
@@ -201,9 +207,9 @@
           <div class="col question-col">
             <div class="question-with-checkbox">
               <input type="checkbox" class="question-checkbox" />
-              <span>What is the func...</span>
+              <span>What is the function of RAM in computer</span>
             </div>
-            <!-- <div class="answer">RAM(Random Access Memory) is used tostore and access the data that is actively being used by the system, making operations faster.</div> -->
+            <div class="answer">RAM(Random Access Memory) is used tostore and access the data that is actively being used by the system, making operations faster.</div>
           </div>
           <div class="col owner-col">Admin</div>
           <div class="col type-col">Theory</div>
@@ -220,9 +226,9 @@
           <div class="col question-col">
             <div class="question-with-checkbox">
               <input type="checkbox" class="question-checkbox" />
-              <span>Explain the conc...</span>
+              <span>Explain the concept of object-oriented programming.</span>
             </div>
-            <!-- <div class="answer">Object-Oriented Programming(OOP) is a programming paradigm that organizes software into objects that contain both data and methods.</div> -->
+            <div class="answer">Object-Oriented Programming(OOP) is a programming paradigm that organizes software into objects that contain both data and methods.</div>
           </div>
           <div class="col owner-col">Admin</div>
           <div class="col type-col">Theory</div>
@@ -239,9 +245,9 @@
           <div class="col question-col">
             <div class="question-with-checkbox">
               <input type="checkbox" class="question-checkbox" />
-              <span>Solve:...</span>
+              <span>Solve: 15 x 6</span>
             </div>
-            <!-- <div class="answer">90</div> -->
+            <div class="answer">90</div>
           </div>
           <div class="col owner-col">Admin</div>
           <div class="col type-col">Numerical</div>
@@ -258,9 +264,9 @@
           <div class="col question-col">
             <div class="question-with-checkbox">
               <input type="checkbox" class="question-checkbox" />
-              <span>What is the chemi...</span>
+              <span>What is the chemical symbol for Gold?</span>
             </div>
-            <!-- <div class="answer">Au</div> -->
+            <div class="answer">Au</div>
           </div>
           <div class="col owner-col">Admin</div>
           <div class="col type-col">MCQ</div>
@@ -277,9 +283,9 @@
           <div class="col question-col">
             <div class="question-with-checkbox">
               <input type="checkbox" class="question-checkbox" />
-              <span>Who develop...</span>
+              <span>Who developed the python programming language?</span>
             </div>
-            <!-- <div class="answer">Guido Van Rossum</div> -->
+            <div class="answer">Guido Van Rossum</div>
           </div>
           <div class="col owner-col">Admin</div>
           <div class="col type-col">MCQ</div>
@@ -296,9 +302,9 @@
           <div class="col question-col">
             <div class="question-with-checkbox">
               <input type="checkbox" class="question-checkbox" />
-              <span>What does HTML...</span>
+              <span>What does HTML stands for?</span>
             </div>
-            <!-- <div class="answer">Hyper Text Markup Language</div> -->
+            <div class="answer">Hyper Text Markup Language</div>
           </div>
           <div class="col owner-col">Admin</div>
           <div class="col type-col">MCQ</div>
@@ -315,9 +321,9 @@
           <div class="col question-col">
             <div class="question-with-checkbox">
               <input type="checkbox" class="question-checkbox" />
-              <span>What is the...</span>
+              <span>What is the square root of 144?</span>
             </div>
-            <!-- <div class="answer">12</div> -->
+            <div class="answer">12</div>
           </div>
           <div class="col owner-col">Admin</div>
           <div class="col type-col">Numerical</div>
@@ -334,9 +340,9 @@
           <div class="col question-col">
             <div class="question-with-checkbox">
               <input type="checkbox" class="question-checkbox" />
-              <span>Define Newton's Seco...</span>
+              <span>Define Newton's Second Law of Motion.</span>
             </div>
-            <!-- <div class="answer">Newton's Second Law states that Force = Mass x Acceleration(F = ma).</div> -->
+            <div class="answer">Newton's Second Law states that Force = Mass x Acceleration(F = ma).</div>
           </div>
           <div class="col owner-col">Admin</div>
           <div class="col type-col">Theory</div>
@@ -353,9 +359,9 @@
           <div class="col question-col">
             <div class="question-with-checkbox">
               <input type="checkbox" class="question-checkbox" />
-              <span>What is the Cap...</span>
+              <span>What is the Capital of France?</span>
             </div>
-            <!-- <div class="answer">Paris</div> -->
+            <div class="answer">Paris</div>
           </div>
           <div class="col owner-col">Admin</div>
           <div class="col type-col">MCQ</div>
@@ -372,9 +378,9 @@
           <div class="col question-col">
             <div class="question-with-checkbox">
               <input type="checkbox" class="question-checkbox" />
-              <span>Explain the concep...</span>
+              <span>Explain the concept of JSX in React.</span>
             </div>
-            <!-- <div class="answer">JSX is a syntax extension for JavaScript that looks similar to HTML. It allows you to write HTML-like code in your Javascript files, making it easier to describe what the UI should look like.</div> -->
+            <div class="answer">JSX is a syntax extension for JavaScript that looks similar to HTML. It allows you to write HTML-like code in your Javascript files, making it easier to describe what the UI should look like.</div>
           </div>
           <div class="col owner-col">Admin</div>
           <div class="col type-col">Numerical</div>
@@ -399,10 +405,11 @@
         </div>
 
       </div>
+    </div>  
+      <!-- Existing Content Remains Unchanged -->
     </main>
   </div>
 
-  <script src="script3.js"></script>
+  <script src="final.js"></script>
 </body>
 </html>
-
