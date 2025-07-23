@@ -1,3 +1,4 @@
+
 document.addEventListener("DOMContentLoaded", () => {
   const toggleBtn = document.getElementById("toggleBtn");
   const sidebar = document.getElementById("sidebar");
@@ -13,7 +14,6 @@ document.addEventListener("DOMContentLoaded", () => {
     overlay.classList.remove("active");
   });
 
-  // View dropdown toggle
   const viewBtn = document.getElementById("viewBtn");
   const dropdownMenu = document.getElementById("dropdownMenu");
 
@@ -28,7 +28,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Apply filter checkboxes
   const applyBtn = document.getElementById("applyBtn");
   applyBtn.addEventListener("click", () => {
     document.querySelectorAll(".toggle-col").forEach((checkbox) => {
@@ -40,7 +39,6 @@ document.addEventListener("DOMContentLoaded", () => {
     dropdownMenu.style.display = "none";
   });
 
-  // Search bar filter
   const searchInput = document.querySelector(".search-bar");
   searchInput.addEventListener("input", () => {
     const filter = searchInput.value.toLowerCase();
@@ -50,7 +48,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Load more / less
   const allRows = Array.from(document.querySelectorAll(".table-row"));
   const loadMoreBtn = document.getElementById("loadMoreBtn");
   const loadLessBtn = document.getElementById("loadLessBtn");
@@ -80,7 +77,6 @@ document.addEventListener("DOMContentLoaded", () => {
     updateRows();
   });
 
-  // Delete confirmation
   document.querySelectorAll(".fa-trash").forEach((icon) => {
     icon.addEventListener("click", () => {
       const row = icon.closest(".table-row");
@@ -91,14 +87,24 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   });
-//   document.querySelectorAll(".question-checkbox").forEach((checkbox) => {
-//   checkbox.addEventListener("change", () => {
-//     const anyChecked = Array.from(document.querySelectorAll(".question-checkbox"))
-//       .some(cb => cb.checked);
 
-//     document.querySelectorAll(".answer").forEach(answer => {
-//       answer.style.display = anyChecked ? "block" : "none";
-//     });
-//   });
-// });
+  document.querySelectorAll(".question-with-checkbox span").forEach((span) => {
+    span.addEventListener("click", () => {
+      const answer = span.closest(".question-col").querySelector(".answer");
+      if (answer) {
+        answer.style.display = answer.style.display === "block" ? "none" : "block";
+      }
+    });
+  });
+
+
+const masterCheckbox = document.getElementById("masterCheckbox");
+
+masterCheckbox.addEventListener("change", () => {
+  const allCheckboxes = document.querySelectorAll(".question-checkbox");
+  allCheckboxes.forEach((cb) => {
+    cb.checked = masterCheckbox.checked;
+  });
+});
+
 });
